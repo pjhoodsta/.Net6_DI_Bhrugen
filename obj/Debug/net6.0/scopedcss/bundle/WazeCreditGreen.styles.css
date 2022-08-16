@@ -1,0 +1,49 @@
+/* _content/WazeCreditGreen/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-xanqq9wtws] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-xanqq9wtws] {
+  color: #0077cc;
+}
+
+.btn-primary[b-xanqq9wtws] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-xanqq9wtws], .nav-pills .show > .nav-link[b-xanqq9wtws] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-xanqq9wtws] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-xanqq9wtws] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-xanqq9wtws] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-xanqq9wtws] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-xanqq9wtws] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

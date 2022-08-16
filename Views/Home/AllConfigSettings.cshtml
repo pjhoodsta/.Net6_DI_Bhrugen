@@ -1,0 +1,13 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="p-4">
+    <h3>Following are the configuration from AppSettings:</h3>
+    <ul>
+        @foreach (var message in Model) {
+            <li>@message</li>
+        }
+    </ul>
+</div>
