@@ -23,7 +23,7 @@ namespace WazeCreditGreen.Controllers {
         private readonly StripeSettings _stripeSettings;
         private readonly SendGridSettings _sendGridSettings;
         private readonly WazeForecastingSettings _wazeForecastingSettings;
-        private readonly ILogger _logger;
+        //private readonly ILogger _logger;
         [BindProperty]
         public CreditApplication CreditModel { get; set; }
 
@@ -32,10 +32,11 @@ namespace WazeCreditGreen.Controllers {
         public HomeController(IMarketForecaster marketForecaster,
         IOptions<WazeForecastingSettings> wazeForecastingSettings,
         ICreditValidator creditValidator,
-        ApplicationDbContext db,
-        ILogger logger) {
+        //ILogger logger,
+        ApplicationDbContext db) {
+
             homeVM = new HomeVM();
-            _logger = logger;
+            //_logger = logger;
             _wazeForecastingSettings = wazeForecastingSettings.Value;
             _marketForecaster = marketForecaster;
             _creditValidator = creditValidator;
