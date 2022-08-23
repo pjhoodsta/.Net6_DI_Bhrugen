@@ -23,20 +23,18 @@ namespace WazeCreditGreen.Controllers {
         private readonly StripeSettings _stripeSettings;
         private readonly SendGridSettings _sendGridSettings;
         private readonly WazeForecastingSettings _wazeForecastingSettings;
-        //private readonly ILogger _logger;
+        private readonly ILogger _logger;
         [BindProperty]
         public CreditApplication CreditModel { get; set; }
-
-
 
         public HomeController(IMarketForecaster marketForecaster,
         IOptions<WazeForecastingSettings> wazeForecastingSettings,
         ICreditValidator creditValidator,
-        //ILogger logger,
+        ILogger<HomeController> logger,
         ApplicationDbContext db) {
 
             homeVM = new HomeVM();
-            //_logger = logger;
+            _logger = logger;
             _wazeForecastingSettings = wazeForecastingSettings.Value;
             _marketForecaster = marketForecaster;
             _creditValidator = creditValidator;
@@ -63,7 +61,22 @@ namespace WazeCreditGreen.Controllers {
 
         public IActionResult Index() {
             MarketResult currentMarket = _marketForecaster.GetMarketPrediction();
-            return View();
+            switch (currentMarket.MarketCondition) {
+                case MarketCondition.StableDown:
+                    homeVM.MarketForecast = "Market shows signs to go down in a stable state! It is a not a good sign to apply for credit applications! But extra credit is always piece of mind if you have handy when you need it.";
+                    break;
+                case MarketCondition.StableUp:
+                    homeVM.MarketForecast = "Market shows signs to go up in a stable state! It is a great sign to apply for credit applications!";
+                    break;
+                case MarketCondition.Volatile:
+                    homeVM.MarketForecast = "Market shows signs of volatility. In uncertain times, it is good to have credit handy if you need extra funds!";
+                    break;
+                default:
+                    homeVM.MarketForecast = "Apply for a credit card using our application!";
+                    break;
+            }
+            _logger.LogInformation("Home Conteoller Index Action Ended");
+            return View(homeVM);
         }
 
         public IActionResult CreditApplication() {
