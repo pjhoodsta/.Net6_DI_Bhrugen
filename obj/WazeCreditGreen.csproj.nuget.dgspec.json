@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {}
+    "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {}
   },
   "projects": {
-    "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {
+    "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
+        "projectUniqueName": "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
         "projectName": "WazeCreditGreen",
-        "projectPath": "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
+        "projectPath": "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
         "packagesPath": "C:\\Users\\pjhoo\\.nuget\\packages\\",
-        "outputPath": "C:\\.Net6_DI_Bhrugen\\obj\\",
+        "outputPath": "c:\\.Net6_DI_Bhrugen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
