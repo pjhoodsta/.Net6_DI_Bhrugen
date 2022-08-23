@@ -9,8 +9,7 @@ using WazeCreditGreen.Models;
 using Microsoft.EntityFrameworkCore;
 //https://github.com/dotnet/extensions/issues/2084
 using Microsoft.Extensions.DependencyInjection.Extensions;
-//https://github.com/andrewlock/NetEscapades.Extensions.Logging/issues/2
-using Microsoft.Extensions.Logging;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
