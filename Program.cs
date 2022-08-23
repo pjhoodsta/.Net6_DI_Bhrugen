@@ -9,9 +9,19 @@ using WazeCreditGreen.Models;
 using Microsoft.EntityFrameworkCore;
 //https://github.com/dotnet/extensions/issues/2084
 using Microsoft.Extensions.DependencyInjection.Extensions;
-
+//https://github.com/andrewlock/NetEscapades.Extensions.Logging/issues/2
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+//Using Serilog, without ILogger
+// Log.Logger = new LoggerConfiguration()
+// .MinimumLevel.Debug()
+// .WriteTo.File("logs/creditApp-log-{Date}.txt")
+// .CreateLogger();
+
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -24,7 +34,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IMarketForecaster, MarketForecaster>();
 builder.Services.AddAppSettingsConfig(builder.Configuration);
-//builder.Services.AddScoped<IValidationChecker, CreditValidationChecker>(); 
+//builder.Services.AddScoped<IValidationChecker, CreditValidationChecker>();
 //builder.Services.AddScoped<IValidationChecker, AddressValidationChecker>();
 //decapreated - only for demo purposes
 // builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<IValidationChecker, AddressValidationChecker>());
@@ -57,6 +67,9 @@ builder.Services.AddScoped<Func<CreditApprovedEnum, ICreditApproved>>(ServicePro
 
 var app = builder.Build();
 
+//https://stackoverflow.com/questions/69938319/how-to-get-iloggerfactory-in-net-6
+var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
@@ -71,7 +84,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+loggerFactory.AddFile("logs/creditApp-log-{Date}.txt");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseMiddleware<CustomMiddleware>();

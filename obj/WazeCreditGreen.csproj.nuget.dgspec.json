@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {}
+    "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {}
   },
   "projects": {
-    "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {
+    "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
+        "projectUniqueName": "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
         "projectName": "WazeCreditGreen",
-        "projectPath": "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
+        "projectPath": "C:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
         "packagesPath": "C:\\Users\\pjhoo\\.nuget\\packages\\",
-        "outputPath": "c:\\.Net6_DI_Bhrugen\\obj\\",
+        "outputPath": "C:\\.Net6_DI_Bhrugen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,6 +64,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[6.0.5, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [

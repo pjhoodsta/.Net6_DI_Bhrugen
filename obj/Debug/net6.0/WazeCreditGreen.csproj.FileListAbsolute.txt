@@ -211,3 +211,10 @@ C:\.Net6_DI_Bhrugen\obj\Debug\net6.0\refint\WazeCreditGreen.dll
 C:\.Net6_DI_Bhrugen\obj\Debug\net6.0\WazeCreditGreen.pdb
 C:\.Net6_DI_Bhrugen\obj\Debug\net6.0\WazeCreditGreen.genruntimeconfig.cache
 C:\.Net6_DI_Bhrugen\obj\Debug\net6.0\ref\WazeCreditGreen.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Extensions.Logging.File.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Sinks.Async.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\.Net6_DI_Bhrugen\bin\Debug\net6.0\Serilog.Sinks.RollingFile.dll
