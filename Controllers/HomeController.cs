@@ -7,6 +7,7 @@ using WazeCreditGreen.Utility.AppSettingClasses;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using WazeCreditGreen.Data;
+using WazeCreditGreen.Data.Repository.IRepository;
 
 namespace WazeCreditGreen.Controllers {
     public class HomeController : Controller {
@@ -18,7 +19,7 @@ namespace WazeCreditGreen.Controllers {
         public HomeVM homeVM { get; set; }
         private readonly IMarketForecaster _marketForecaster;
         private readonly ICreditValidator _creditValidator;
-        private readonly ApplicationDbContext _db;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly TwilioSettings _twilioSettings;
         private readonly StripeSettings _stripeSettings;
         private readonly SendGridSettings _sendGridSettings;
@@ -31,6 +32,7 @@ namespace WazeCreditGreen.Controllers {
         IOptions<WazeForecastingSettings> wazeForecastingSettings,
         ICreditValidator creditValidator,
         ILogger<HomeController> logger,
+        IUnitOfWork unitOfWork,
         ApplicationDbContext db) {
 
             homeVM = new HomeVM();
@@ -38,7 +40,8 @@ namespace WazeCreditGreen.Controllers {
             _wazeForecastingSettings = wazeForecastingSettings.Value;
             _marketForecaster = marketForecaster;
             _creditValidator = creditValidator;
-            _db = db;
+            _unitOfWork = unitOfWork;
+            //_db = db;
 
         }
 
@@ -105,8 +108,8 @@ namespace WazeCreditGreen.Controllers {
                         ).GetCreditApproved(CreditModel);
 
                     //add record to database
-                    _db.CreditApplicationModel.Add(CreditModel);
-                    _db.SaveChanges();
+                    _unitOfWork.CreditApplication.Add(CreditModel);
+                    _unitOfWork.Save();
                     creditResult.CreditID = CreditModel.Id;
                     creditResult.CreditApproved = CreditModel.CreditApproved;
                     return RedirectToAction(nameof(CreditResult), creditResult);

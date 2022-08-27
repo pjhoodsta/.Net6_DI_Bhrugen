@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using WazeCreditGreen.Data.Repository;
+using WazeCreditGreen.Data.Repository.IRepository;
 using WazeCreditGreen.Models;
 using WazeCreditGreen.Service;
 using WazeCreditGreen.Service.LifeTimeExample;
@@ -27,6 +29,7 @@ namespace WazeCreditGreen.Utility.DIConfig {
             services.AddTransient<TransientService>();
             services.AddTransient<SingletonService>();
             services.AddTransient<ScopedService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<CreditApprovedHigh>();
             services.AddScoped<CreditApprovedLow>();
