@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sClHAocPZOiOGSiCU6wGmiUXRbSi7Di1B5APs+SxgvCw4yBqidL+kQ4UEKlwbIjNDsb0NBzpw0iXNU7aVQ+Qhg==",
+  "dgSpecHash": "+zVkDZttbqAKqBdldta+hu2LFP2ZsgjUHLdaKMAgjG2R10zplgUI93VQ4pOn1BmrsoNdIL265J5UHGAfapKwUA==",
   "success": true,
-  "projectFilePath": "c:\\.Net6_DI_Bhrugen\\WazeCreditGreen.csproj",
+  "projectFilePath": "d:\\.Net6_DI_Bhrugen\\WazeCreditGreen\\WazeCreditGreen.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pjhoo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\pjhoo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.5\\microsoft.aspnetcore.cryptography.internal.6.0.5.nupkg.sha512",

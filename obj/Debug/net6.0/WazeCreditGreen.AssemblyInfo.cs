@@ -10,6 +10,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-WazeCreditGreen-651ECDD6-DC41-4CF2-857F-42AD7E580AB9")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("WazeCreditGreen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
