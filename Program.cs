@@ -9,7 +9,8 @@ using WazeCreditGreen.Models;
 using Microsoft.EntityFrameworkCore;
 //https://github.com/dotnet/extensions/issues/2084
 using Microsoft.Extensions.DependencyInjection.Extensions;
-
+//https://github.com/andrewlock/NetEscapades.Extensions.Logging/issues/2
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,38 +32,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<IMarketForecaster, MarketForecaster>();
-builder.Services.AddAppSettingsConfig(builder.Configuration);
-//builder.Services.AddScoped<IValidationChecker, CreditValidationChecker>();
-//builder.Services.AddScoped<IValidationChecker, AddressValidationChecker>();
-//decapreated - only for demo purposes
-// builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<IValidationChecker, AddressValidationChecker>());
-// builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<IValidationChecker, CreditValidationChecker>());
+builder.Services.AddAppSettingsConfig(builder.Configuration).AddAllServices();
 
-builder.Services.TryAddEnumerable(new[]{
-    ServiceDescriptor.Transient<IValidationChecker, CreditValidationChecker>(),
-    ServiceDescriptor.Transient<IValidationChecker, AddressValidationChecker>()
-});
-
-
-builder.Services.AddScoped<ICreditValidator, CreditValidator>();
-
-builder.Services.AddTransient<TransientService>();
-builder.Services.AddTransient<SingletonService>();
-builder.Services.AddTransient<ScopedService>();
-
-builder.Services.AddScoped<CreditApprovedHigh>();
-builder.Services.AddScoped<CreditApprovedLow>();
-
-builder.Services.AddScoped<Func<CreditApprovedEnum, ICreditApproved>>(ServiceProvider => range => {
-    switch (range) {
-        case CreditApprovedEnum.Low:
-            return ServiceProvider.GetService<CreditApprovedLow>();
-        case CreditApprovedEnum.High:
-            return ServiceProvider.GetService<CreditApprovedHigh>();
-        default: return ServiceProvider.GetService<CreditApprovedLow>();
-    }
-});
 
 var app = builder.Build();
 
